@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مواقيت الصلاة في السعودية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>مواقيت الصلاة لشهر <span id="current-month"></span> 2025</h1>
+        
+        <div class="current-month">
+            <p>نحن في شهر: <span id="month-name"></span></p>
+        </div>
+
+        <div class="city-selector">
+            <h2>اختر مدينتك</h2>
+            <select id="city-selector">
+                <option value="jeddah">جدة</option>
+                <option value="riyadh">الرياض</option>
+                <option value="mecca">مكة المكرمة</option>
+                <option value="medina">المدينة المنورة</option>
+                <option value="dhahran">الدمام</option>
+                <option value="khobar">الخبر</option>
+                <option value="taif">الطائف</option>
+                <option value="abha">أبها</option>
+                <option value="dammam">الدمام</option>
+                <option value="jazan">جازان</option>
+                <option value="tabuk">تبوك</option>
+                <option value="buraidah">بريدة</option>
+                <option value="najran">نجران</option>
+                <option value="khamis_mushait">خميس مشيط</option>
+            </select>
+        </div>
+
+        <div class="prayer-times">
+            <div class="prayer-time">
+                <h2>الفجر</h2>
+                <p id="fajr-time">5:00 AM</p>
+                <div class="countdown" id="fajr-countdown"></div>
+            </div>
+            <div class="prayer-time">
+                <h2>الظهر</h2>
+                <p id="dhuhr-time">12:15 PM</p>
+                <div class="countdown" id="dhuhr-countdown"></div>
+            </div>
+            <div class="prayer-time">
+                <h2>العصر</h2>
+                <p id="asr-time">3:45 PM</p>
+                <div class="countdown" id="asr-countdown"></div>
+            </div>
+            <div class="prayer-time">
+                <h2>المغرب</h2>
+                <p id="maghrib-time">6:15 PM</p>
+                <div class="countdown" id="maghrib-countdown"></div>
+            </div>
+            <div class="prayer-time">
+                <h2>العشاء</h2>
+                <p id="isha-time">7:30 PM</p>
+                <div class="countdown" id="isha-countdown"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <select id="month-selector">
+                <option value="january">يناير</option>
+                <option value="february">فبراير</option>
+                <option value="march">مارس</option>
+                <option value="april">أبريل</option>
+                <option value="may">مايو</option>
+                <option value="june">يونيو</option>
+                <option value="july">يوليو</option>
+                <option value="august">أغسطس</option>
+                <option value="september">سبتمبر</option>
+                <option value="october">أكتوبر</option>
+                <option value="november">نوفمبر</option>
+                <option value="december">ديسمبر</option>
+            </select>
+            <button class="print-button" onclick="printMonthlyTimes()">طباعة مواقيت الصلاة</button>
+        </div>
+
+        <div class="share-button">
+            <button onclick="copyLink()">نسخ الرابط للمشاركة</button>
+        </div>
+
+        <table id="monthly-prayer-times">
+            <thead>
+                <tr>
+                    <th>اليوم</th>
+                    <th>الفجر</th>
+                    <th>الظهر</th>
+                    <th>العصر</th>
+                    <th>المغرب</th>
+                    <th>العشاء</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- سيتم ملء الجدول ديناميكيًا هنا -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+

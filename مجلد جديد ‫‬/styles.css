@@ -1,0 +1,124 @@
+body {
+  font-family: 'Amiri', serif;
+  background-color: #f7f7f7;
+  text-align: center;
+  padding: 40px;
+  direction: rtl;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 36px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+.prayer-times {
+  margin-top: 30px;
+}
+
+.prayer-time {
+  background-color: #16a085;
+  color: white;
+  padding: 15px;
+  margin: 15px auto;
+  border-radius: 15px;
+  font-size: 20px;
+  width: 350px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.countdown {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #f39c12;
+}
+
+.city-selector {
+  margin-top: 30px;
+}
+
+select {
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+  margin-top: 10px;
+  background-color: #ecf0f1;
+  border: 2px solid #16a085;
+}
+
+.current-month {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #8e44ad;
+}
+
+.footer {
+  margin-top: 30px;
+}
+
+.print-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #2980b9;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: #1abc9c;
+}
+
+.share-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.share-button:hover {
+  background-color: #2980b9;
+}
+
+#monthly-prayer-times {
+  display: none;
+}
+
+@media print {
+  #monthly-prayer-times {
+      display: table;
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+  }
+  #monthly-prayer-times th, #monthly-prayer-times td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+  }
+  #monthly-prayer-times th {
+      background-color: #2980b9;
+      color: white;
+  }
+  #monthly-prayer-times td {
+      background-color: #f1f1f1;
+  }
+  .prayer-times, .footer, .print-button, .share-button {
+      display: none;
+  }
+}
