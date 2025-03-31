@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html><html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>مواقيت الصلاة في المملكة العربية السعودية</title>
+    <title>مواقيت الصلاة في المملكة</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -11,108 +10,88 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            direction: rtl;
         }
         header {
-            background-color: #009688;
+            background-color: #0275d8;
             color: #fff;
             padding: 20px 0;
-            margin-bottom: 20px;
-        }
-        h1 {
-            margin: 0;
             font-size: 24px;
         }
         .container {
             width: 90%;
             margin: auto;
-            overflow: hidden;
+            padding: 20px;
         }
-        .city-button {
-            background-color: #009688;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .city-button:hover {
-            background-color: #00796b;
+        select {
+            padding: 10px;
+            font-size: 18px;
+            margin: 10px 0;
         }
         table {
-            width: 100%;
-            margin-top: 20px;
+            width: 50%;
+            margin: auto;
             border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         th, td {
-            padding: 10px;
-            text-align: center;
+            padding: 15px;
+            border: 1px solid #ddd;
         }
         th {
-            background-color: #009688;
-            color: #fff;
+            background-color: #0275d8;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>مواقيت الصلاة في المملكة العربية السعودية</h1>
-    </header>
-    <div class="container">
-        <div id="buttons">
-            <!-- سيتم إضافة أزرار المدن هنا بواسطة JavaScript -->
-        </div>
-        <div id="prayer-times">
-            <!-- سيتم عرض جدول مواقيت الصلاة هنا -->
-        </div>
-    </div>
-
     <script>
-        const cities = [
-            { name: 'مكة المكرمة', fajr: '04:58', dhuhr: '12:25', asr: '15:50', maghrib: '18:35', isha: '20:05' },
-            { name: 'المدينة المنورة', fajr: '04:56', dhuhr: '12:26', asr: '15:54', maghrib: '18:37', isha: '20:07' },
-            { name: 'الرياض', fajr: '04:27', dhuhr: '11:57', asr: '15:25', maghrib: '18:09', isha: '19:39' },
-            { name: 'جدة', fajr: '05:00', dhuhr: '12:27', asr: '15:53', maghrib: '18:38', isha: '20:08' },
-            { name: 'الدمام', fajr: '04:12', dhuhr: '11:44', asr: '15:13', maghrib: '17:56', isha: '19:26' }
-            // يمكنك إضافة المزيد من المدن هنا
-        ];
-
-        const buttonsDiv = document.getElementById('buttons');
-        const prayerTimesDiv = document.getElementById('prayer-times');
-
-        cities.forEach(city => {
-            const button = document.createElement('button');
-            button.className = 'city-button';
-            button.innerText = city.name;
-            button.onclick = () => displayPrayerTimes(city);
-            buttonsDiv.appendChild(button);
-        });
-
-        function displayPrayerTimes(city) {
+        alert("أهلا بكم في مواقيت الصلاة");
+    </script>
+    <header>مواقيت الصلاة في المملكة العربية السعودية</header>
+    <div class="container">
+        <h2>أين تعيش؟</h2>
+        <select id="city-select" onchange="displayPrayerTimes()">
+            <option value="">اختر مدينتك</option>
+            <option value="مكة">مكة المكرمة</option>
+            <option value="المدينة">المدينة المنورة</option>
+            <option value="الرياض">الرياض</option>
+            <option value="جدة">جدة</option>
+            <option value="الدمام">الدمام</option>
+        </select>
+        <div id="prayer-times"></div>
+    </div><script>
+    const prayerTimes = {
+        "مكة": { fajr: "04:58", dhuhr: "12:25", asr: "15:50", maghrib: "18:35", isha: "20:05" },
+        "المدينة": { fajr: "04:56", dhuhr: "12:26", asr: "15:54", maghrib: "18:37", isha: "20:07" },
+        "الرياض": { fajr: "04:27", dhuhr: "11:57", asr: "15:25", maghrib: "18:09", isha: "19:39" },
+        "جدة": { fajr: "05:00", dhuhr: "12:27", asr: "15:53", maghrib: "18:38", isha: "20:08" },
+        "الدمام": { fajr: "04:12", dhuhr: "11:44", asr: "15:13", maghrib: "17:56", isha: "19:26" }
+    };
+    
+    function displayPrayerTimes() {
+        const city = document.getElementById("city-select").value;
+        const prayerTimesDiv = document.getElementById("prayer-times");
+        
+        if (city && prayerTimes[city]) {
+            const times = prayerTimes[city];
             prayerTimesDiv.innerHTML = `
-                <h2>مواقيت الصلاة في ${city.name}</h2>
+                <h2>مواقيت الصلاة في ${city}</h2>
                 <table>
-                    <tr>
-                        <th>الفجر</th>
-                        <th>الظهر</th>
-                        <th>العصر</th>
-                        <th>المغرب</th>
-                        <th>العشاء</th>
-                    </tr>
-                    <tr>
-                        <td>${city.fajr}</td>
-                        <td>${city.dhuhr}</td>
-                        <td>${city.asr}</td>
-                        <td>${city.maghrib}</td>
-                        <td>${city.isha}</td>
-                    </tr>
+                    <tr><th>الصلاة</th><th>الوقت</th></tr>
+                    <tr><td>الفجر</td><td>${times.fajr}</td></tr>
+                    <tr><td>الظهر</td><td>${times.dhuhr}</td></tr>
+                    <tr><td>العصر</td><td>${times.asr}</td></tr>
+                    <tr><td>المغرب</td><td>${times.maghrib}</td></tr>
+                    <tr><td>العشاء</td><td>${times.isha}</td></tr>
                 </table>
             `;
+        } else {
+            prayerTimesDiv.innerHTML = "";
         }
-    </script>
+    }
+</script>
+
 </body>
 </html>
